@@ -1,100 +1,135 @@
-# Titanic Dataset – Data Cleaning & Preprocessing
+# 🚢 Titanic Dataset – Data Cleaning & Preprocessing
 
-## Overview
+This project focuses on cleaning and preprocessing the **Titanic dataset** using Python. The notebook demonstrates common data preprocessing techniques required before applying machine learning models.
 
-This project focuses on cleaning and preparing the Titanic dataset for machine learning.
+The complete implementation is available in the Jupyter Notebook [`Task1.ipynb`](Task1.ipynb).
 
-The dataset is processed using Python and common data science libraries to handle missing values, categorical variables, outliers, and feature scaling.
+---
 
-## Objective
-
-The main objectives are to:
+## 🎯 Objectives
 
 - Explore and understand the dataset
 - Identify and handle missing values
 - Convert categorical data into numerical form
-- Detect and handle outliers
+- Detect and remove outliers
 - Standardize numerical features
+- Visualize important patterns in the dataset
 - Prepare the dataset for machine learning
 
-## Dataset
+---
 
-The Titanic dataset contains information about passengers aboard the Titanic, including:
+## 📊 Dataset
+
+The **Titanic dataset** contains information about passengers aboard the RMS Titanic, including:
 
 - Passenger class
 - Gender
 - Age
 - Number of siblings/spouses
 - Number of parents/children
-- Ticket fare
+- Ticket information
+- Fare
 - Port of embarkation
 - Survival status
 
-Dataset source:
+The dataset used in this project is the **Titanic-Dataset.csv** from Kaggle.
 
-[Kaggle – Titanic Dataset](https://www.kaggle.com/datasets/yasserh/titanic-dataset)
+---
 
-## Technologies & Libraries
+## 🛠️ Technologies Used
 
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-learn
-- Google Colab
+- **Python**
+- **Pandas** – Data manipulation and analysis
+- **NumPy** – Numerical operations
+- **Matplotlib** – Data visualization
+- **Seaborn** – Statistical visualization
+- **Scikit-learn** – Feature standardization
 
-## Data Preprocessing
+---
+
+## 🔄 Data Preprocessing Steps
 
 ### 1. Dataset Exploration
 
-- Loaded the dataset using Pandas
-- Examined the dataset structure
-- Checked data types
-- Identified missing values
-- Generated statistical summaries
+The dataset was explored using:
 
-### 2. Missing Value Handling
+- `head()`
+- `shape`
+- `info()`
+- `describe()`
+- Missing-value analysis
 
-- Missing `Age` values were replaced using the median.
-- Missing `Embarked` values were replaced using the mode.
-- The `Cabin` column was removed due to a large proportion of missing values.
+The original dataset contains **891 rows and 12 columns**.
+
+---
+
+### 2. Handling Missing Values
+
+Missing values were handled using appropriate techniques:
+
+- **Age** → Missing values replaced using the median
+- **Embarked** → Missing values replaced using the mode
+- **Cabin** → Removed because it contains a large number of missing values
+
+---
 
 ### 3. Categorical Encoding
 
-- `Sex` was converted into numerical values:
-  - Male → 0
-  - Female → 1
-- `Embarked` was converted into numerical features using one-hot encoding.
+Categorical variables were converted into numerical form:
 
-### 4. Feature Cleaning
+- `Sex` → Male = 0, Female = 1
+- `Embarked` → One-hot encoded
 
-The following unnecessary columns were removed:
+Unnecessary columns such as `Name` and `Ticket` were removed from the dataset.
 
-- `PassengerId`
-- `Name`
-- `Ticket`
+`PassengerId` was also removed because it is an identifier rather than a useful predictive feature.
 
-### 5. Outlier Detection
+---
 
-Boxplots were used to visualize potential outliers.
+### 4. Outlier Detection
 
-The IQR (Interquartile Range) method was used to detect and remove outliers from continuous numerical features.
+Outliers were visualized using **boxplots**.
 
-### 6. Feature Scaling
+The **Interquartile Range (IQR)** method was used to identify and remove extreme values from continuous numerical features such as:
+
+- Age
+- Fare
+
+---
+
+### 5. Feature Standardization
 
 Numerical features were standardized using `StandardScaler` from Scikit-learn.
 
-The standardized features have approximately:
+The following features were standardized:
+
+- Age
+- Fare
+- SibSp
+- Parch
+
+Standardization transforms the features so that they have approximately:
 
 - Mean = 0
 - Standard deviation = 1
 
-## Project Structure
+---
+
+## 📈 Visualizations
+
+The project includes visualizations such as:
+
+- Boxplots for detecting outliers
+- Survival rate by gender
+- Overall passenger survival distribution
+
+These visualizations help understand patterns and relationships within the dataset.
+
+---
+
+## 📁 Project Structure
 
 ```text
-Titanic-Data-Cleaning/
-│
-├── Task_1_Data_Cleaning.ipynb
-├── Titanic_Cleaned.csv
-└── README.md
+Task1/
+├── README.md
+└── Task1.ipynb
